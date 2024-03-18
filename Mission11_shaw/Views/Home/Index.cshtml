@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model BooksListViewModel
+
+<!--Pulls in the components from the BookSummary.cshtml and loops through all the books in the DB-->
+
+<h1>The Bookstore</h1>
+
+@foreach (Book b in Model.Books)
+{
+    <partial name="BookSummary" model="b" />
+
+
+}
+
+
+
+<div page-model="@Model.PaginationInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+
+<!--Custom tag helper to spit out as many pages as needed-->
